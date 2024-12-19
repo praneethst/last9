@@ -10,7 +10,7 @@ alertrules.jpeg
 
 3) assignment.yaml and hosts file attached
    ansible-playbook assignment.yaml  
-4) terraform script
+4) terraform file
    praneeth.tf
 
 5) optional.
