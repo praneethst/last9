@@ -1,0 +1,29 @@
+---
+- name: play1
+  hosts: vm1vm2
+  tasks:
+  - name: Running free command
+    shell: free -m | grep -i swap
+    register: freeop
+
+  - name: Display swap space
+    debug:
+     msg: "Free swap on {{ inventory_hostname }}: {{ freeop.stdout }}"
+
+  - name : installing iperf3
+    apt: 
+     name: iperf3
+     state: present
+
+  - name: iperf3 status check
+    service:
+     name: iperf3
+     state: started
+
+- name: play2
+  hosts: vm2
+  tasks:
+  - name: Installing vim
+    apt:
+      name: vim
+      state: present
